@@ -68,18 +68,18 @@ Python Notes
 
     ```Python
     class Celsius:
-    def __init__(self, temperature = 0):
-        self._temperature = temperature
+        def __init__(self, temperature = 0):
+            self.temperature = temperature
 
-    @property
-    def temperature(self):
-        return self._temperature
+        @property
+        def temperature(self):
+            return self._temperature
 
-    @temperature.setter
-    def temperature(self, value):
-        if value < -273:
-            raise ValueError("Temperature below -273 is not possible")
-        self._temperature = value
+        @temperature.setter
+        def temperature(self, value):
+            if value < -273:
+                raise ValueError("Temperature below -273 is not possible")
+            self._temperature = value
     ```
 
 + use for loop in one line
@@ -183,7 +183,7 @@ In Python3.x, only new-style classes exist.
 
 ### ____enter____ ____exit____
 Using these magic methods (__enter__, __exit__) allows you to 
-implement objects which can be used easily with the with statement.
+implement objects which can be used easily with the `with` statement.
 
 ```Python
 class DatabaseConnection(object):
@@ -214,20 +214,20 @@ with DatabaseConnection() as mydbconn:
     
     ```Python
     class yrange:
-    def __init__(self, n):
-        self.i = 0
-        self.n = n
+        def __init__(self, n):
+            self.i = 0
+            self.n = n
 
-    def __iter__(self):
-        return self
+        def __iter__(self):
+            return self
 
-    def next(self):
-        if self.i < self.n:
-            i = self.i
-            self.i += 1
-            return i
-        else:
-            raise StopIteration()   
+        def next(self):
+            if self.i < self.n:
+                i = self.i
+                self.i += 1
+                return i
+            else:
+                raise StopIteration()   
     ```
 
 + Generators simplifies creation of iterators. A generator is 
